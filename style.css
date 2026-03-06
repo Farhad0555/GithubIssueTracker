@@ -1,0 +1,19 @@
+.active-tab {
+    border-bottom: 2px solid #2563eb;
+    color: #2563eb !important;
+}
+
+.card-open {
+    border-top: 4px solid #22c55e;
+}
+
+.card-closed {
+    border-top: 4px solid #a855f7;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}

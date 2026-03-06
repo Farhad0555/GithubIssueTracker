@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Issues Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+    <div id="login-page" class="flex items-center justify-center min-h-screen">
+        <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md border border-gray-200">
+            <div class="text-center mb-8">
+                <div class="flex justify-center mb-4">
+                    <svg height="48" viewBox="0 0 16 16" version="1.1" width="48" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-900">Sign in to GitHub</h1>
+                <p class="text-gray-500 mt-2">Issues Tracker Dashboard</p>
+            </div>
+
+            <form id="login-form" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Username</label>
+                    <input type="text" id="username" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black" required>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-black" required>
+                </div>
+                <button type="submit" class="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition font-semibold">Sign in</button>
+            </form>
+
+            <div class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-md">
+                <p class="text-sm text-blue-700"><strong>Demo Credentials:</strong></p>
+                <p class="text-xs text-blue-600">Username: admin | Password: admin123</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-dashboard" class="hidden">
+        <nav class="bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between sticky top-0 z-50">
+            <div class="flex items-center space-x-2">
+                <svg height="32" viewBox="0 0 16 16" width="32"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                <span class="font-bold text-lg hidden md:block">GitHub Issues Tracker</span>
+            </div>
+            <div class="flex items-center space-x-2">
+                <input type="text" id="search-input" placeholder="Search issues..." class="px-3 py-1.5 border border-gray-300 rounded-md focus:ring-1 focus:ring-blue-500 text-sm w-48 md:w-64">
+                <button id="search-btn" class="bg-gray-100 border border-gray-300 px-3 py-1.5 rounded-md hover:bg-gray-200 text-sm font-medium">Search</button>
+                <button id="logout-btn" class="ml-4 text-sm text-red-600 font-medium">Logout</button>
+            </div>
+        </nav>
+
+        <main class="max-w-7xl mx-auto p-4 md:p-6">
+            <div class="flex space-x-4 border-b border-gray-200 mb-6">
+                <button data-filter="all" class="tab-btn active-tab px-4 py-2 text-sm font-medium">All</button>
+                <button data-filter="open" class="tab-btn px-4 py-2 text-sm font-medium text-gray-500 hover:text-black">Open</button>
+                <button data-filter="closed" class="tab-btn px-4 py-2 text-sm font-medium text-gray-500 hover:text-black">Closed</button>
+            </div>
+
+            <div class="flex items-center justify-between mb-6 bg-gray-100 p-4 rounded-lg">
+                <div class="flex items-center space-x-2">
+                    <span class="font-bold text-gray-700" id="issue-count">0</span>
+                    <span class="text-gray-600">Issues found in this category</span>
+                </div>
+                <div class="flex space-x-3 text-xs font-bold uppercase tracking-wider">
+                    <span class="text-green-600">● Open</span>
+                    <span class="text-purple-600">● Closed</span>
+                </div>
+            </div>
+
+            <div id="loader" class="hidden flex justify-center py-20">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+            </div>
+
+            <div id="issues-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                </div>
+        </main>
+    </div>
+
+    <div id="issue-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-[60] flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-xl">
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 id="modal-title" class="text-2xl font-bold"></h2>
+                    <button id="close-modal" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+                </div>
+                <div id="modal-content" class="space-y-4">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
