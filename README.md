@@ -14,3 +14,7 @@ forEach() only loops through the array and performs an action but does not retur
 An arrow function is a shorter way to write functions using => syntax.
 It does not have its own this and is commonly used for simple functions.
 
+5. What are template literals?
+
+
+
