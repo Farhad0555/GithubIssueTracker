@@ -6,3 +6,7 @@ let can change value, but const cannot be reassigned after declaration.
 The spread operator ... expands elements of an array or object into individual values.
 It is commonly used to copy, merge, or pass elements easily.
 
+3. What is the difference between map(), filter(), and forEach()?
+map() creates a new array by transforming each element, and filter() creates a new array with elements that pass a condition.
+forEach() only loops through the array and performs an action but does not return a new array.
+
