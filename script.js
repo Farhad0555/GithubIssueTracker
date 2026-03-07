@@ -62,8 +62,10 @@ function renderIssues() {
                 <h3 class="font-bold text-blue-600 hover:underline mb-2 line-clamp-1 title-click">${issue.title}</h3>
                 <p class="text-sm text-gray-600 mb-4 line-clamp-2">${issue.description}</p>
                 <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="px-2 py-0.5 bg-gray-100 text-[10px] font-bold rounded-full border border-gray-300">${issue.label}</span>
-                    <span class="px-2 py-0.5 bg-yellow-50 text-[10px] font-bold text-yellow-700 rounded-full border border-yellow-200">${issue.priority}</span>
+                    
+                    <span class="px-2 py-0.5 bg-yellow-50 text-[10px] font-bold text-yellow-700 rounded-full border border-yellow-200">${issue.priority?issue.priority:"Help Wanted"}</span>
+                    <span class="px-2 py-0.5 bg-[#FEECEC] text-[10px] font-bold rounded-full border border-gray-300">${issue.label?issue.label:"BUG"}</span>
+                    <span class="px-2 py-0.5 bg-[#FFF8DB] text-[10px] font-bold rounded-full border border-gray-300">${issue.label?"Help wanted":"Help wanted"}</span>
                 </div>
             </div>
             <div class="pt-3 border-t border-gray-100 mt-auto">
