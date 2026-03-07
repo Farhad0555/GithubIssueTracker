@@ -20,7 +20,7 @@ It does not have its own this and is commonly used for simple functions.
 
 5. What are template literals?
    
-Template literals are strings written with backticks ` ` that allow embedded expressions using ${}.
+Template literals are strings written with backticks [ ` ` ] that allow embedded expressions using ${}.
 They make string interpolation and multi-line strings easier in JavaScript.
 
 
