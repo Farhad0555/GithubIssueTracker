@@ -87,10 +87,10 @@ function openModal(issue) {
     
     content.innerHTML = `
         <div class="grid grid-cols-2 gap-4 text-sm">
-            <p><strong>Category:</strong> ${issue.category}</p>
+            <p><strong>Category:</strong> ${issue.category?issue.category:"BUG"}</p>
             <p><strong>Status:</strong> ${issue.status}</p>
             <p><strong>Priority:</strong> ${issue.priority}</p>
-            <p><strong>Label:</strong> ${issue.label}</p>
+            <p><strong>Label:</strong> ${issue.label?issue.label:"Help"}</p>
             <p><strong>Author:</strong> ${issue.author}</p>
             <p><strong>Created:</strong> ${new Date(issue.createdAt).toLocaleString()}</p>
         </div>
